@@ -1,0 +1,3 @@
+- hosts: zabbix-master
+  roles:
+    - create-psk
