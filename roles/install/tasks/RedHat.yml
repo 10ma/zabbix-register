@@ -1,0 +1,9 @@
+- name: Install zabbix.repo
+  yum:
+    name: "{{ zabbix_repository }}"
+
+- name: Install zabbix-agent
+  yum:
+    name: zabbix-agent
+    enablerepo: zabbix
+  ignore_errors: "{{ ansible_check_mode }}"
