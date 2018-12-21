@@ -5,13 +5,23 @@
   tags:
     - standby
 
-#- name: Add Zabbix-SIA.repo apt key
+- name: Get repo
+  get_url:
+    url: "{{ zabbix_repository }}"
+    dest: /usr/local/src
+  register: dl_result
+  until: dl_result is succeeded
+  retries: 3
+  delay: 5
 
-- name: Add Zabbix-SIA.repo
-  apt_repository:
-    repo: "{{ zabbix_repository }}"
+- name: Install Zabbix-SIA
+  apt:
+    deb: "/usr/local/src/{{ zabbix_release_file }}"
+  ignore_errors: "{{ ansible_check_mode }}"
 
 - name: Install zabbix-agent
   apt:
-    name: zabbix-agent
+    name: "zabbix-agent"
+    #name: "zabbix-agent=1:{{ zabbix_version }}.0rc3-1+stretch"
+    #name: "zabbix-agent=1:4.0.0rc3-1+stretch"
     update_cache: yes
