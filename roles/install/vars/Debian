@@ -1,0 +1,2 @@
+zabbix_repository: "deb http://repo.zabbix.com/zabbix/{{ zabbix_version }}/debian {{ ansible_distribution_release }} main"
+
