@@ -1,0 +1,8 @@
+## ansible_os_family - ansible_distribution
+##  Debian           - Debian
+##  Debian           - Ubuntu
+##  RedHat           - CentOS
+##  RedHat           - Amazon
+
+- include_tasks: "{{ ansible_os_family }}.yml"
+  become: yes
