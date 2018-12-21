@@ -42,7 +42,7 @@ ansible-playbook -i hosts site.yml --extra-vars "stage=prod"
 ## Roles
 
 - create-psk - `zabbix-master` サーバーで `psktool` で `full_psk`, `key_psk`を作成、Download
-- install
+- install -  Distribution別にZabbix-SIAレポジトリ導入して `zabbix-agent`をインストール
 - setting
 - monitor
 
