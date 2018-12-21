@@ -1,0 +1,19 @@
+- name: Install python-apt
+  apt:
+    name: python-apt
+    update_cache: yes
+  tags:
+    - standby
+  become: yes
+
+#- name: Add Zabbix-SIA.repo apt key
+
+- name: Add Zabbix-SIA.repo
+  apt_repository:
+    repo: "{{ zabbix_repository }}"
+
+- name: Install zabbix-agent
+  apt:
+    name: zabbix-agent
+    update_cache: yes
+  become: yes

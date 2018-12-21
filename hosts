@@ -5,3 +5,4 @@ zabbix2-master
 
 [agent-servers]
 aws-test
+deb-test
