@@ -4,7 +4,7 @@
 ##  RedHat           - CentOS
 ##  RedHat           - Amazon
 
-- include_vars: "{{ ansible_os_family }}"
+- include_vars: "{{ ansible_distribution }}"
 
 - include_tasks: "{{ ansible_os_family }}.yml"
   tags: standby
