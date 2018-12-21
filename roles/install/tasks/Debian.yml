@@ -4,7 +4,6 @@
     update_cache: yes
   tags:
     - standby
-  become: yes
 
 #- name: Add Zabbix-SIA.repo apt key
 
@@ -16,4 +15,3 @@
   apt:
     name: zabbix-agent
     update_cache: yes
-  become: yes
