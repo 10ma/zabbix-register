@@ -3,5 +3,6 @@
     - create-psk
 
 - hosts: agent-servers
+  become: yes
   roles:
     - install
