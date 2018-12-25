@@ -4,6 +4,7 @@
 
 - hosts: agent-servers
   become: yes
+  vars_files: vars/{{ stage }}
   roles:
     #- install
     - setting
