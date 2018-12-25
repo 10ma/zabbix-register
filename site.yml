@@ -1,8 +1,9 @@
-- hosts: zabbix-master
-  roles:
-    - create-psk
+#- hosts: zabbix-master
+#  roles:
+#    - create-psk
 
 - hosts: agent-servers
   become: yes
   roles:
-    - install
+    #- install
+    - setting

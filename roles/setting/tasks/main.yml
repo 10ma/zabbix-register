@@ -1,0 +1,4 @@
+- name: Create psk dir
+  file:
+    path: "{{ setting_psk_path }}"
+    state: directory
