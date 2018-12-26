@@ -3,8 +3,8 @@ setting_psk_path: /etc/zabbix/psk
 
 
 ## vars/{{ stage }}で上書き定義
-#zabbix_server_ip:
-#zabbix_active_ip:
+zabbix_server_ip: 127.0.0.1
+zabbix_active_ip: 127.0.0.1
 
 ##host_varsで上書き可能
 regist_zabbix_hostname: "{{ inventory_hostname }}_{{ ansible_nodename }}"
