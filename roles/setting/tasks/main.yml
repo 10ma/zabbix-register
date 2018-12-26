@@ -10,3 +10,4 @@
   loop:
     - { src: "psk_files/key_{{ psk_filename }}",   dest: "{{ setting_psk_path }}/zabbix_agentd.psk" }
     - { src: "zabbix_agentd.conf",                 dest: "/etc/zabbix" }
+  notify: restart zabbix-agent
