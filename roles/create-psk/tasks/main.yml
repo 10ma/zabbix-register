@@ -1,5 +1,5 @@
 - name: Create psk on zabbix-master
-  shell: "/usr/bin/psktool -u {{ psk_identity }} -p {{ psk_filename }}"
+  command: "/usr/bin/psktool -u {{ psk_identity }} -p {{ psk_filename }}"
   args:
     chdir: "{{ psk_path }}"
     creates: "{{ psk_path }}/{{ psk_filename }}"
@@ -13,7 +13,7 @@
   become: yes
 
 - name: Create key for psk
-  local_action:
-    module: shell
-    args: "cut -d: -f2 psk_files/full_{{ psk_filename }} > psk_files/key_{{ psk_filename }}"
+  shell: "cut -d: -f2 psk_files/full_{{ psk_filename }} > psk_files/key_{{ psk_filename }}"
+  args:
     creates: "psk_files/key_{{ psk_filename }}"
+  delegate_to: localhost
