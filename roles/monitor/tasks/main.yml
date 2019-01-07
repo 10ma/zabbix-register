@@ -1,0 +1,10 @@
+# zabbix-serverへのグループ登録は1度だけ
+- name: Create host group
+  zabbix_group:
+    server_url: "{{ zabbix_server_url }}"
+    login_user: "{{ zabbix_login_user }}"
+    login_password: "{{ zabbix_login_pw }}"
+    host_groups: "{{ zabbix_register_groupnames }}"
+  delegate_to: localhost
+  become: no
+  when: inventory_hostname==groups['agent-servers'][0]

@@ -52,7 +52,7 @@ ansible-playbook -i hosts site.yml --extra-vars "stage=prod"
 - create-psk - `zabbix-master` サーバーで `psktool` で `full_psk`, `key_psk`を作成、Download
 - install -  Distribution別にZabbix-SIAレポジトリ導入して `zabbix-agent`をインストール
 - setting - zabbix-agentd.confや監視系ファイルを設置
-- monitor
+- monitor - zabbix-server側にホストグループ・ホスト登録のAPIを投げる
 
 
 

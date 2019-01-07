@@ -7,4 +7,5 @@
   vars_files: vars/{{ stage }}
   roles:
     #- install
-    - setting
+    #- setting
+    - monitor
