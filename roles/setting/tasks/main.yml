@@ -12,6 +12,11 @@
     - { src: "zabbix_agentd.conf",                 dest: "/etc/zabbix" }
   notify: restart zabbix-agent
 
+# pgsql,mysql for zabbix userparameter my.cnf
+# - block:
+#   - name: Create zabbix DB-PW directory
+#   - name: Upload zabbix-my.cnf
+#   - name: Upload zabbix-pgpass
 
 
 - name: Start zabbix-agent
