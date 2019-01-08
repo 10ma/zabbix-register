@@ -7,8 +7,7 @@
     host_groups: "{{ zabbix_register_groupnames }}"
   delegate_to: localhost
   become: no
-  run_once: true
-  #when: inventory_hostname==groups['agent-servers'][0]
+  when: inventory_hostname==groups['agent-servers'][0]
 
 # zabbix-serverへのホスト登録はリストの数だけ実施
 - name: Create host
