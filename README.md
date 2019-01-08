@@ -19,6 +19,7 @@
 ### Edit inventory host file
 
 ```shell
+$ pip install zabbix-api
 $ vi hosts
 ```
 
