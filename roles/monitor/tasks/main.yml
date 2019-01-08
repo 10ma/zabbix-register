@@ -7,4 +7,28 @@
     host_groups: "{{ zabbix_register_groupnames }}"
   delegate_to: localhost
   become: no
-  when: inventory_hostname==groups['agent-servers'][0]
+  run_once: true
+  #when: inventory_hostname==groups['agent-servers'][0]
+
+# zabbix-serverへのホスト登録はリストの数だけ実施
+- name: Create host
+  zabbix_host:
+    server_url: "{{ zabbix_server_url }}"
+    login_user: "{{ zabbix_login_user }}"
+    login_password: "{{ zabbix_login_pw }}"
+    host_groups: "{{ zabbix_register_groupnames }}"
+    host_name: "{{ zabbix_register_hostname }}"
+    link_templates: "{{ zabbix_link_templates | flatten | unique }}"
+    tls_accept: "{{ zabbix_tls.accept }}"
+    tls_connect: "{{ zabbix_tls.connect }}"
+    tls_psk_identity: "{{ psk_identity }}"
+    tls_psk: "{{ psk_key }}"
+    interfaces:
+      - type: "{{ zabbix_interfaces.type }}"
+        main: "{{ zabbix_interfaces.main }}"
+        useip: "{{ zabbix_interfaces.useip }}"
+        ip: "{{ zabbix_register_ip }}"
+        dns: "{{ zabbix_interfaces.dns }}"
+        port: "{{ zabbix_interfaces.port }}"
+  delegate_to: localhost
+  become: no
