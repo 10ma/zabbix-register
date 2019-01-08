@@ -35,7 +35,7 @@ zabbix2-master-server
 ### Register for staging.
 
 ```shell
-ansible-playbook -i hosts site.yml
+ZABBIX_LOGIN_USER=[xxx] ZABBIX_LOGIN_PW=[xxx] ansible-playbook -i hosts site.yml
 ```
 
 
@@ -43,7 +43,7 @@ ansible-playbook -i hosts site.yml
 ### Register for production.
 
 ```shell
-ansible-playbook -i hosts site.yml --extra-vars "stage=prod"
+ZABBIX_LOGIN_USER=[xxx] ZABBIX_LOGIN_PW=[xxx] ansible-playbook -i hosts site.yml --extra-vars "stage=prod"
 ```
 
 
