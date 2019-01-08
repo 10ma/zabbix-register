@@ -1,0 +1,36 @@
+zabbix_register_hostname: localhost
+zabbix_register_ip: 127.0.0.1
+zabbix_link_templates:
+  - "{{ basic_templates }}"
+  - "{{ extend_templates }}"
+
+basic_templates:
+  #- 'Template ICMP Ping'
+  #- 'Template App Zabbix Agent'
+
+extend_templates:
+  - 'na_ssh'
+
+
+
+psk_key: "{{ lookup('file', 'psk_files/key_' + psk_filename) }}"
+
+# accept:  Connection from host
+# connect: Connection to host
+# 1: no encryption, 2: PSK, 4: certificate
+zabbix_tls:
+  accept: 2
+  connect: 2
+
+
+
+# type: Interface type             # 1: agent, 2: snmp, 3: ipmi, 4: jmx
+# main: Default Interface on Host? # 0: no, 1: yes
+# useip: Use Connection            # 0: DNS, 1: IP
+# dns: useip: 0 then dns-name
+zabbix_interfaces:
+  type: 1
+  main: 1
+  useip: 1
+  dns: ''
+  port: 10050
