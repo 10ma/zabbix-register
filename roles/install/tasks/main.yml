@@ -1,0 +1,12 @@
+## ansible_os_family - ansible_distribution
+##  Debian           - Debian
+##  Debian           - Ubuntu
+##  RedHat           - CentOS
+##  RedHat           - Amazon
+
+- name: distribution毎のzabbix_repository(URL)をinclude
+  include_vars: "{{ ansible_distribution }}"
+
+- name: Redhat(yum)/Debian(apt)系別のtask実行
+  include_tasks: "{{ ansible_os_family }}.yml"
+  tags: standby

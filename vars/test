@@ -1,0 +1,13 @@
+# roles/setting/templates/zabbix_agentd.conf
+zabbix_server_ip: 61.195.167.250
+zabbix_active_ip: 61.195.167.250
+
+# roles/monitor/tasks/main.yml
+zabbix_server_url: "http://{{ zabbix_server_ip }}/zabbix/"
+#zabbix_login_user: "test-api"
+#zabbix_login_pw: "zabbix-api-user-pw"
+zabbix_login_user: "{{ lookup('env', 'ZABBIX_LOGIN_USER') }}"
+zabbix_login_pw: "{{ lookup('env', 'ZABBIX_LOGIN_PW') }}"
+
+zabbix_register_groupnames:
+  - "ansible register"

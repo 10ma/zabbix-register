@@ -1,0 +1,11 @@
+
+[zabbix-master]
+zabbix2-master
+
+
+[agent-servers]
+aws-test
+deb-test
+
+[all:vars]
+stage=test

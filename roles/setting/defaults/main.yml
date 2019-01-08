@@ -1,0 +1,16 @@
+setting_psk_path: /etc/zabbix/psk
+
+
+
+## vars/{{ stage }}で上書き定義
+zabbix_server_ip: 127.0.0.1
+zabbix_active_ip: 127.0.0.1
+
+##host_varsで上書き可能
+regist_zabbix_hostname: "{{ inventory_hostname }}_{{ ansible_nodename }}"
+
+# 自動登録用(事前にサーバ側設定が必要)
+zabbix_hostmetadata: auto-register1000
+
+# roles/create-psk のものと同様、group_vars/allで上書き定義
+psk_identity: 'psk_identity'

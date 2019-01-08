@@ -1,0 +1,11 @@
+#- hosts: zabbix-master
+#  roles:
+#    - create-psk
+
+- hosts: agent-servers
+  become: yes
+  vars_files: vars/{{ stage }}
+  roles:
+    #- install
+    #- setting
+    - monitor

@@ -1,0 +1,25 @@
+- name: Create psk dir
+  file:
+    path: "{{ setting_psk_path }}"
+    state: directory
+
+- name: Upload psk, conf, parameter files
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  loop:
+    - { src: "psk_files/key_{{ psk_filename }}",   dest: "{{ setting_psk_path }}/zabbix_agentd.psk" }
+    - { src: "zabbix_agentd.conf",                 dest: "/etc/zabbix" }
+  notify: restart zabbix-agent
+
+# pgsql,mysql for zabbix userparameter my.cnf
+# - block:
+#   - name: Create zabbix DB-PW directory
+#   - name: Upload zabbix-my.cnf
+#   - name: Upload zabbix-pgpass
+
+
+- name: Start zabbix-agent
+  service:
+    name: zabbix-agent
+    state: started
